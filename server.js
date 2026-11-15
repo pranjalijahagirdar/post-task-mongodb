@@ -1,14 +1,13 @@
 const dns = require('dns');
 dns.setServers(['8.8.8.8', '8.8.4.4']);
 
-
 const express = require('express')
 
 const app = express();
 const cors = require('cors');
 const mongoose = require('mongoose')
-const crypto = require('crypto').webcrypto;
-globalThis.crypto = crypto
+// const crypto = require('crypto').webcrypto;
+// globalThis.crypto = crypto
 
 require('dotenv').config();
 
@@ -51,7 +50,7 @@ async function startServer(){
         }
 
         await mongoose.connect(process.env.MONGODB_URI)
-        console.log("Mongodb connected")
+        console.log("Mongodb connected successfully!")
 
         app.listen(PORT,()=>{
             console.log(`server is running on port ${PORT}`)
